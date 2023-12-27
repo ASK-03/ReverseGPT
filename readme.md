@@ -1,5 +1,5 @@
-# Synergizing Language Models and APIs - Team_52
-This implementation represents the solution proposed by Team_52. It employs a fusion of Reverse Chain layered upon RestGPT. RestGPT systematically breaks down complex user tasks into smaller, step-by-step components. Concurrently, Reverse Chain endeavors to fulfill these smaller tasks by utilizing the provided query and extracting relevant knowledge from the documentation. The detailed architecture for this solution is outlined below.
+# Synergizing Language Models and APIs
+This implementation represents the solution proposed. It employs a fusion of Reverse Chain layered upon RestGPT. RestGPT systematically breaks down complex user tasks into smaller, step-by-step components. Concurrently, Reverse Chain endeavors to fulfill these smaller tasks by utilizing the provided query and extracting relevant knowledge from the documentation. The detailed architecture for this solution is outlined below.
 
 ![Architecture of the proposed solution](images/architecture.jpg)
 
