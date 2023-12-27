@@ -16,6 +16,7 @@ CHUNK_OVERLAP = int(config["faiss"]["chunk_overlap"])
 
 EMBEDDING_MODEL = config["huggingface"]["embedding_model"]
 
+
 class VectorDataBase(FAISS):
     def __init__(self) -> None:
         self.embeddings_model = HuggingFaceEmbeddings(
@@ -23,7 +24,7 @@ class VectorDataBase(FAISS):
         )
         self.data_directory = os.path.join(DATA_PATH, "api_documentation")
         self.db = None
-    
+
     def load_db(self):
         self.db = FAISS.load_local(FAISS_DATA_PATH, self.embeddings_model)
 
@@ -53,7 +54,18 @@ class VectorDataBase(FAISS):
         if self.db is not None:
             return self.db.similarity_search(query, k=top_k)
 
+
 if __name__ == "__main__":
     vector_db = VectorDataBase()
     vector_db.create_vector_db()
-    print(vector_db.retrieve_using_similarity_search("give me my id", 1))
+    vector_db.load_db()
+    document = vector_db.retrieve_using_similarity_search("give me my id", 1)
+    print(document)
+    if document is not None:
+        _document = []
+        for doc_num, doc in enumerate(document):
+            _document.append(
+                f"\nNext API:\n{document[doc_num].page_content}\nSource: {document[doc_num].metadata['source']}\n"
+            )
+        context = " ".join(_document)
+        print(context)

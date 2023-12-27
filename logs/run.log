@@ -1,0 +1,2 @@
+2023-12-28 00:55:25,123 - INFO - NumExpr defaulting to 8 threads.
+2023-12-28 00:55:28,474 - INFO - error_code=invalid_api_key error_message='Incorrect API key provided: sk-k7OO8***************************************0mw4. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
