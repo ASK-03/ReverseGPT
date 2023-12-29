@@ -37,7 +37,10 @@ class Executor:
         elif function_name == "work_list":
             return server.work_list()
         else:
-            return None
+            return {
+                "status": 200,
+                "message": "Successfully ran function: " + function_name,
+            }
 
 
 if __name__ == "__main__":
